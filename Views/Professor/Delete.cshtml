@@ -1,0 +1,39 @@
+@model ProjetosEscola.Models.Professor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>EXCLUIR</h1>
+
+<h3>Tem certeza que deseja deletar isso?</h3>
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome do Professor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeProfessor)
+        </dd>
+        <dt class = "col-sm-2">
+            Matrícula
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+        <dt class = "col-sm-2">
+            Área de Atuação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AreaAtuacao)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar à Lista</a>
+    </form>
+</div>

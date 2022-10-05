@@ -1,0 +1,54 @@
+@model ProjetosEscola.Models.Orientacao
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar nova orientação</h1>
+
+<h4>Por favor, preencha os campos abaixo:</h4>
+<hr />
+@if(ViewBag.IdAluno != null && ViewBag.IdProfessor != null){
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label>Escolha um aluno:</label>
+                    <select asp-for="IdAluno" class ="form-control" asp-items="ViewBag.IdAluno"></select>
+                    <span asp-validation-for="IdAluno" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Escolha um professor:</label>
+                    <select asp-for="IdProfessor" class ="form-control" asp-items="ViewBag.IdProfessor"></select>
+                    <span asp-validation-for="IdProfessor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Nome do Projeto:</label>
+                    <input asp-for="NomeProjeto" class="form-control" />
+                    <span asp-validation-for="NomeProjeto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Data Limite para término:</label>
+                    <input asp-for="DataLimite" class="form-control" />
+                    <span asp-validation-for="DataLimite" class="text-danger"></span>
+                </div><br/>
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else{
+    <div class="text-center">
+        <p>Não há alunos cadastrados e professores devidamente cadastrados. Favor se dirigir ao menu acima para realizar operações.</p>
+    </div>
+}
+<div>
+    <a asp-action="Index">Voltar à lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

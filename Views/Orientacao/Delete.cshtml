@@ -1,0 +1,45 @@
+@model ProjetosEscola.Models.Orientacao
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>EXCLUIR</h1>
+
+<h3>Tem certeza que deseja excluir a seguinte orientação?</h3>
+<div>
+    <h4>Orientacao</h4>
+    <hr/>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome do Projeto:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeProjeto)
+        </dd>
+        <dt class = "col-sm-2">
+            Data Limite do Projeto:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataLimite)
+        </dd>
+        <dt class = "col-sm-2">
+            Nome do Aluno:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aluno.NomeAluno)
+        </dd>
+        <dt class = "col-sm-2">
+            Nome do Professor:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Professor.NomeProfessor)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar à lista de orientações</a>
+    </form>
+</div>
